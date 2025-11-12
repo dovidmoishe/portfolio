@@ -58,7 +58,7 @@ function Hero() {
             </p>
 
             <p className="text-black text-[16px] md:text-[20px] lg:text-[24px] leading-[24px] md:leading-[32px] lg:leading-[36px] opacity-[0.7] text-center">
-            I build clean, scalable, and user-centered digital systems that solve real problems and deliver measurable impact, guided by thoughtful design, strategy, and efficiency.
+            I design and develop fast, scalable systems that solve real problems and feel great to use.
             </p>
         </div>
 
