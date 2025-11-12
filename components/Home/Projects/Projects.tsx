@@ -8,6 +8,7 @@ import { FaArrowRight } from "react-icons/fa";
 interface Project {
   name: string;
   role: string;
+  description: string;
   year: string;
   link: string;
   previewImage: StaticImageData;
@@ -17,6 +18,7 @@ const projects: Project[] = [
   {
     name: "EduLearn.fun",
     role: "Fullstack Development",
+    description: "A web3 AI study companion that currently has 1000+ users",
     year: "2025",
     link: "https://edulearn.fun",
     previewImage: edulearn,
@@ -24,6 +26,7 @@ const projects: Project[] = [
   {
     name: "isitsafe.io",
     role: "Frontend Development",
+    description: "A crypto reviews platform for projects that help build trust from the community through platform scores",
     year: "2022 - Now",
     link: "https://isitsafe.io",
     previewImage: isitsafe,
@@ -31,6 +34,7 @@ const projects: Project[] = [
   {
     name: "Challenge App",
     role: "MERN Stack Development",
+    description: "An app that helps you track and save progress on challenges using MongoDB and Express. Built for a hackathon",
     year: "2024",
     link: "https://github.com/dovidmoishe/challenge-app-backend",
     previewImage: challenge,
@@ -75,6 +79,10 @@ const ProjectCard = (projectData: Project) => {
             </Link>
           </div>
         </div>
+
+        <p className="text-[14px] md:text-[15px] lg:text-[16px] font-normal leading-[20px] md:leading-[22px] lg:leading-[24px] opacity-[0.6]">
+          {projectData.description}
+        </p>
       </div>
     </div>
   );
