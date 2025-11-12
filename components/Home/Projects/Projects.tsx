@@ -35,7 +35,7 @@ const projects: Project[] = [
     name: "Challenge App",
     role: "MERN Stack Development",
     description: "An app that helps you track and save progress on challenges using MongoDB and Express. Built for a hackathon",
-    year: "2024",
+    year: "2022",
     link: "https://github.com/dovidmoishe/challenge-app-backend",
     previewImage: challenge,
   },
