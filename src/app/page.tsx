@@ -13,7 +13,7 @@ export default function Home() {
     <Hero />
     <Projects />
     <Work />
-    <Testimonials />
+    {/* <Testimonials /> */}
     <CTA />
     <Footer />
     </>
