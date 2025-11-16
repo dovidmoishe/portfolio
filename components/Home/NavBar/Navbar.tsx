@@ -13,8 +13,8 @@ function Navbar() {
   }
 
   return (
-    <div>
-      <div className="flex items-center justify-between py-[20px] px-[16px] md:py-[25px] md:px-[32px] lg:px-[64px]">
+    <div className="fixed top-[16px] md:top-[20px] lg:top-[24px] left-0 right-0 z-[100] px-[16px] md:px-[32px] lg:px-[64px]">
+      <div className="flex items-center justify-between py-[8px] px-[16px] md:py-[8px] md:px-[32px] lg:py-[18px] lg:px-[40px] bg-white/80 backdrop-blur-md border border-gray-200/50 rounded-4xl shadow-lg">
         <Link href="/">
           <Image src={Dave} alt="Dave" width={50} height={50} className='rounded-full md:w-[60px] md:h-[60px] lg:w-[70px] lg:h-[70px]' />
         </Link>
@@ -55,13 +55,17 @@ function Navbar() {
           </Link>
         </div>
 
-        <button onClick={toggleMenu} className={`md:hidden z-50 ${isMenuOpen ? 'text-white' : ''}`} aria-label="Toggle menu">
-          {isMenuOpen ? <FaXmark size={24} /> : <FaBars size={24} />}
+        <button onClick={toggleMenu} className="md:hidden relative" aria-label="Toggle menu">
+          <FaBars size={24} />
         </button>
       </div>
 
+      <button onClick={toggleMenu} className={`md:hidden fixed top-[28px] right-[32px] md:right-[48px] lg:right-[80px] z-[110] text-white bg-black p-2 rounded-full shadow-xl transition-all ${isMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`} aria-label="Close menu">
+        <FaXmark size={28} />
+      </button>
+
       {isMenuOpen && (
-        <div className="md:hidden fixed inset-0 bg-black/95 z-40 flex flex-col items-center justify-center text-white">
+        <div className="md:hidden fixed inset-0 bg-black/95 z-[99] flex flex-col items-center justify-center text-white">
           <div className="flex flex-col items-center gap-[32px] mb-[48px]">
             <Link href="/" onClick={toggleMenu}>
               <p className="text-2xl hover:opacity-70 transition-opacity">Home</p>
