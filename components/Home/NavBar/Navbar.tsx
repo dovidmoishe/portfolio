@@ -12,26 +12,37 @@ function Navbar() {
     setIsMenuOpen(!isMenuOpen)
   }
 
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId)
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
+    setIsMenuOpen(false)
+  }
+
   return (
     <div className="fixed top-[16px] md:top-[20px] lg:top-[24px] left-0 right-0 z-[100] px-[16px] md:px-[32px] lg:px-[64px]">
       <div className="flex items-center justify-between py-[8px] px-[16px] md:py-[8px] md:px-[32px] lg:py-[18px] lg:px-[40px] bg-white/80 backdrop-blur-md border border-gray-200/50 rounded-4xl shadow-lg">
-        <Link href="/">
+        <button onClick={() => scrollToSection('hero')} className="cursor-pointer">
           <Image src={Dave} alt="Dave" width={50} height={50} className='rounded-full md:w-[60px] md:h-[60px] lg:w-[70px] lg:h-[70px]' />
-        </Link>
+        </button>
 
         <div className="hidden md:flex items-center gap-[16px] lg:gap-[24px]">
-          <Link href="/">
-            <p className="hover:opacity-70 transition-opacity">Home</p>
-          </Link>
-          <Link href="/about">
-            <p className="hover:opacity-70 transition-opacity">Works</p>
-          </Link>
-          <Link href="/experience">
-            <p className="hover:opacity-70 transition-opacity">Experience</p>
-          </Link>
-          <Link href="/contact">
-            <p className="hover:opacity-70 transition-opacity">Contact</p>
-          </Link>
+          <button onClick={() => scrollToSection('hero')} className="hover:opacity-70 transition-opacity">
+            <p>Home</p>
+          </button>
+          <button onClick={() => scrollToSection('projects')} className="hover:opacity-70 transition-opacity">
+            <p>Projects</p>
+          </button>
+          <button onClick={() => scrollToSection('work')} className="hover:opacity-70 transition-opacity">
+            <p>Work</p>
+          </button>
+          <button onClick={() => scrollToSection('testimonials')} className="hover:opacity-70 transition-opacity">
+            <p>Testimonials</p>
+          </button>
+          <button onClick={() => scrollToSection('contact')} className="hover:opacity-70 transition-opacity">
+            <p>Contact</p>
+          </button>
         </div>
 
         <div className="hidden md:flex items-center gap-[12px] lg:gap-[16px]">
@@ -67,18 +78,21 @@ function Navbar() {
       {isMenuOpen && (
         <div className="md:hidden fixed inset-0 bg-black/95 z-[99] flex flex-col items-center justify-center text-white">
           <div className="flex flex-col items-center gap-[32px] mb-[48px]">
-            <Link href="/" onClick={toggleMenu}>
+            <button onClick={() => scrollToSection('hero')}>
               <p className="text-2xl hover:opacity-70 transition-opacity">Home</p>
-            </Link>
-            <Link href="/about" onClick={toggleMenu}>
-              <p className="text-2xl hover:opacity-70 transition-opacity">Works</p>
-            </Link>
-            <Link href="/experience" onClick={toggleMenu}>
-              <p className="text-2xl hover:opacity-70 transition-opacity">Experience</p>
-            </Link>
-            <Link href="/contact" onClick={toggleMenu}>
+            </button>
+            <button onClick={() => scrollToSection('projects')}>
+              <p className="text-2xl hover:opacity-70 transition-opacity">Projects</p>
+            </button>
+            <button onClick={() => scrollToSection('work')}>
+              <p className="text-2xl hover:opacity-70 transition-opacity">Work</p>
+            </button>
+            <button onClick={() => scrollToSection('testimonials')}>
+              <p className="text-2xl hover:opacity-70 transition-opacity">Testimonials</p>
+            </button>
+            <button onClick={() => scrollToSection('contact')}>
               <p className="text-2xl hover:opacity-70 transition-opacity">Contact</p>
-            </Link>
+            </button>
           </div>
 
           <div className="flex items-center gap-[24px]">

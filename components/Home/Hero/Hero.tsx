@@ -29,7 +29,7 @@ const skills = [
 
 function Hero() {
   return (
-    <div className="flex items-center justify-center overflow-x-hidden px-[16px] md:px-[32px] pt-[120px] md:pt-[140px] lg:pt-[160px]">
+    <div id="hero" className="flex items-center justify-center overflow-x-hidden px-[16px] md:px-[32px] pt-[120px] md:pt-[140px] lg:pt-[160px]">
       <div className="flex flex-col items-center gap-[24px] md:gap-[32px] lg:gap-[40px] w-full max-w-full">
         <div className="bg-[#F2FFF7] rounded-[24px] md:rounded-[33px] py-[10px] px-[12px] md:pt-[12px] md:pr-[16px] md:pb-[12px] md:pl-[12px] flex items-center gap-[8px] md:gap-[12px]">
           <svg

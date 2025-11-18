@@ -23,7 +23,7 @@ const works = [
 
 const Work = () => {
   return (
-    <div className='mt-[60px] md:mt-[80px] lg:mt-[100px]'>
+    <div id="work" className='mt-[60px] md:mt-[80px] lg:mt-[100px]'>
       <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 md:gap-6 px-[16px] md:px-[32px] lg:px-[64px]">
         <div className="flex flex-col">
           <p className="opacity-[0.7] text-[18px] md:text-[20px] lg:text-[24px] font-medium leading-[28px] md:leading-[32px] lg:leading-[36px]">

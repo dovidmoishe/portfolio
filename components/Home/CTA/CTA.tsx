@@ -5,7 +5,7 @@ import { FaXTwitter } from "react-icons/fa6";
 
 const CTA = () => {
   return (
-    <div className="mt-[60px] md:mt-[80px] lg:mt-[100px] py-[50px] md:py-[65px] lg:py-[80px]">
+    <div id="contact" className="mt-[60px] md:mt-[80px] lg:mt-[100px] py-[50px] md:py-[65px] lg:py-[80px]">
       <div className="flex flex-col items-center justify-center px-[16px] md:px-[32px] lg:px-[64px] max-w-[90%] md:max-w-[700px] lg:max-w-[900px] mx-auto text-center">
         <h2 className="text-[32px] md:text-[40px] lg:text-[48px] font-bold leading-[40px] md:leading-[50px] lg:leading-[60px] mb-4 md:mb-5 lg:mb-6">
           Let's Work Together
