@@ -2,6 +2,12 @@ import React from 'react'
 
 const works = [
   {
+    role: "Frontend/Mobile Engineer",
+    company: "NectarFi",
+    duration: "2025 - Present",
+    description: "I lead the development and maintenance of NectarFi's mobile and web applications, building scalable, high-performance user experiences. I work across React Native (Expo) and Next.js, integrating secure payment flows, real-time features, and blockchain-powered infrastructure while ensuring smooth performance and clean architecture.",
+  },
+  {
     role: "Fullstack Engineer/Founder",
     company: "EduLearn.fun",
     duration: "2025 - Present",
