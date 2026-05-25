@@ -1,0 +1,54 @@
+<svg width="1855" height="883" viewBox="0 0 1855 883" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1855" height="883" fill="#080808"/>
+  <rect x="18" y="8" width="1819" height="56" fill="#080808" stroke="#747474" stroke-width="2"/>
+  <text x="40" y="44" fill="#62F7F7" font-family="Consolas, 'Courier New', monospace" font-size="24" font-weight="700">Agentic Wallet v0.1.0</text>
+
+  <rect x="18" y="92" width="1269" height="700" fill="#080808" stroke="#747474" stroke-width="2"/>
+  <rect x="1301" y="92" width="536" height="700" fill="#080808" stroke="#747474" stroke-width="2"/>
+  <rect x="18" y="820" width="1819" height="56" fill="#080808" stroke="#747474" stroke-width="2"/>
+
+  <g font-family="Consolas, 'Courier New', monospace" font-size="24" font-weight="700">
+    <text x="40" y="156" fill="#62F7F7">Chat</text>
+    <text x="40" y="212" fill="#2E7BFF">Agent:</text>
+    <text x="40" y="240" fill="#D0D0D0">Welcome back! Agent 5ba97355... loaded.</text>
+
+    <text x="40" y="296" fill="#19EF2E">You:</text>
+    <text x="40" y="324" fill="#D0D0D0">transfer 0.1 sol to 4u3xRREFp3zHddtPwJHh91yTZYhaAJiYQYVhbie2j65</text>
+
+    <text x="40" y="380" fill="#2E7BFF">Agent:</text>
+    <text x="40" y="408" fill="#D0D0D0">Please confirm that you want to transfer 0.1 SOL to</text>
+    <text x="40" y="436" fill="#D0D0D0">4u3xRREFp3zHddtPwJHh91yTZYhaAJiYQYVhbie2j65.</text>
+
+    <text x="40" y="492" fill="#19EF2E">You:</text>
+    <text x="40" y="520" fill="#D0D0D0">yep go ahead g</text>
+
+    <text x="40" y="576" fill="#2E7BFF">Agent:</text>
+    <text x="40" y="604" fill="#D0D0D0">Transfer successful!</text>
+    <text x="40" y="632" fill="#D0D0D0">Amount: 0.1 SOL</text>
+    <text x="40" y="660" fill="#D0D0D0">To: 4u3xRREFp3zHddtPwJHh91yTZYhaAJiYQYVhbie2j65</text>
+    <text x="40" y="688" fill="#D0D0D0">Signature:</text>
+    <text x="40" y="716" fill="#D0D0D0">3aZ97hpANOtcybwtXMQaPX7fNZS8iquyYe6LudDBsD6cjGsumYmK5WA8eCEYXrsiCZaW9Ucw14ju1LNhS3raieSJ</text>
+  </g>
+
+  <g font-family="Consolas, 'Courier New', monospace" font-size="24" font-weight="700">
+    <text x="1322" y="156" fill="#62F7F7">Agent Info</text>
+
+    <text x="1322" y="212" fill="#737373">Agent ID:</text>
+    <text x="1322" y="268" fill="#D0D0D0">5ba97355-7ff5-47...</text>
+
+    <text x="1322" y="324" fill="#737373">Max Spend:</text>
+    <text x="1322" y="380" fill="#E7C800">10 SOL</text>
+
+    <text x="1322" y="436" fill="#737373">Public Key:</text>
+    <text x="1322" y="492" fill="#D0D0D0">8whavhjC5LqLPwVWULNh...</text>
+
+    <text x="1322" y="548" fill="#737373">Balance:</text>
+    <text x="1322" y="604" fill="#19EF2E">1.0000 SOL</text>
+  </g>
+
+  <g font-family="Consolas, 'Courier New', monospace" font-size="24" font-weight="700">
+    <text x="40" y="858" fill="#36B4FF">&gt;</text>
+    <rect x="68" y="835" width="14" height="28" fill="#D0D0D0"/>
+    <text x="88" y="858" fill="#8A8A8A">Type a message...</text>
+  </g>
+</svg>

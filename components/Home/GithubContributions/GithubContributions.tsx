@@ -1,14 +1,24 @@
+"use client";
+
+import Image from "next/image";
+import Link from "next/link";
+import { motion } from "framer-motion";
+
 const githubUsername = "dovidmoishe";
 
 const GithubContributions = () => {
   return (
-    <section
+    <motion.div
       id="github-contributions"
-      className="mt-[60px] md:mt-[80px] lg:mt-[100px] px-[16px] md:px-[32px] lg:px-[64px]"
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.12 }}
+      transition={{ duration: 0.55, ease: "easeOut" }}
+      className="mt-[60px] md:mt-[80px] lg:mt-[100px]"
     >
-      <div className="border border-black/20 rounded-[20px] p-[20px] md:p-[28px] lg:p-[32px] bg-white">
-        <div className="flex items-center justify-between gap-4 flex-wrap">
-          <div>
+      <div className="mx-auto w-full max-w-5xl px-6 md:px-10">
+        <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between md:gap-6">
+          <div className="flex flex-col">
             <p className="opacity-[0.7] text-[18px] md:text-[20px] lg:text-[24px] font-medium leading-[28px] md:leading-[32px] lg:leading-[36px]">
               GitHub
             </p>
@@ -16,27 +26,39 @@ const GithubContributions = () => {
               Contributions
             </p>
           </div>
-          <a
-            href={`https://github.com/${githubUsername}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-[14px] md:text-[15px] lg:text-[16px] underline underline-offset-4 hover:opacity-70 transition-opacity"
-          >
-            View profile
-          </a>
+
+          <motion.div whileHover={{ x: 2 }}>
+            <Link
+              href={`https://github.com/${githubUsername}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="leading-[24px] md:leading-[28px] lg:leading-[30px] text-[14px] md:text-[14px] lg:text-[15px] font-normal text-foreground opacity-[0.7] underline underline-offset-4 hover:opacity-100 transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-md md:max-w-[300px] lg:max-w-none"
+            >
+              View profile
+            </Link>
+          </motion.div>
         </div>
 
-        <div className="mt-[20px] md:mt-[28px] lg:mt-[32px] overflow-x-auto">
-          <div className="min-w-[720px]">
-            <img
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.45, ease: "easeOut", delay: 0.1 }}
+          className="mt-[28px] overflow-x-auto md:mt-[34px] lg:mt-[40px]"
+        >
+          <div className="min-w-[560px] max-w-[860px]">
+            <Image
               src={`https://ghchart.rshah.org/000000/${githubUsername}`}
               alt={`${githubUsername} GitHub contribution chart`}
-              className="w-full h-auto grayscale"
+              width={860}
+              height={144}
+              className="h-auto w-full grayscale dark:invert"
+              unoptimized
             />
           </div>
-        </div>
+        </motion.div>
       </div>
-    </section>
+    </motion.div>
   );
 };
 

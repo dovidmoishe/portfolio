@@ -1,6 +1,9 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
-import { FaXTwitter, FaLinkedin, FaGithub, FaDribbble, FaTiktok, FaInstagram } from "react-icons/fa6";
+import { motion } from "framer-motion";
+import { FaXTwitter, FaGithub, FaTiktok, FaInstagram } from "react-icons/fa6";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -29,29 +32,36 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="py-8 md:py-10 lg:py-12 px-[16px] md:px-[32px] lg:px-[64px] border-t border-gray-200">
-      <div className="flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-0">
+    <motion.footer
+      initial={{ opacity: 0, y: 18 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.4 }}
+      transition={{ duration: 0.45, ease: "easeOut" }}
+      className="py-8 md:py-10 lg:py-12 border-t border-border"
+    >
+      <div className="mx-auto flex w-full max-w-5xl flex-col items-center justify-between gap-4 px-6 sm:flex-row sm:gap-0 md:px-10">
         <p className="text-[13px] md:text-[14px] font-normal leading-[20px] md:leading-[21px] opacity-[0.7]">
           © {currentYear} All rights reserved.
         </p>
 
         <div className="flex items-center gap-4 md:gap-5 lg:gap-6">
           {socials.map((social) => (
+            <motion.div key={social.name} whileHover={{ y: -2, scale: 1.05 }} whileTap={{ scale: 0.96 }}>
             <Link
               key={social.name}
               href={social.url}
               target="_blank"
-              className="text-black opacity-[0.7] hover:opacity-100 transition-opacity duration-300"
+              className="text-foreground opacity-[0.7] hover:opacity-100 transition-opacity duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-md"
               aria-label={social.name}
             >
               <social.icon size={18} className="md:w-[19px] md:h-[19px] lg:w-[20px] lg:h-[20px]" />
             </Link>
+            </motion.div>
           ))}
         </div>
       </div>
-    </footer>
+    </motion.footer>
   );
 };
 
 export default Footer;
-

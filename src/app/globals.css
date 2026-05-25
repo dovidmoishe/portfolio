@@ -1,29 +1,42 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f2f2f2;
+  --foreground: #111111;
+  --surface: #ffffff;
+  --surface-muted: #e8e8e8;
+  --border: rgba(17, 17, 17, 0.1);
+  --ring: #111111;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-space-grotesk);
+  --color-surface: var(--surface);
+  --color-surface-muted: var(--surface-muted);
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+  --font-sans: var(--font-instrument-sans), var(--font-geist-sans), sans-serif;
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #F2F2F2;
-    --foreground: #000;
-  }
+.dark {
+  --background: #0b0b0c;
+  --foreground: #ededed;
+  --surface: #151517;
+  --surface-muted: #202024;
+  --border: rgba(255, 255, 255, 0.12);
+  --ring: #ededed;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-space-grotesk), sans-serif;
+  font-family: var(--font-instrument-sans), var(--font-geist-sans), sans-serif;
   overflow-x: hidden;
+  transition: background-color 180ms ease, color 180ms ease;
 }
 
 html {
@@ -40,21 +53,41 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(0, 0, 0, 0.2);
+  background: color-mix(in srgb, var(--foreground) 20%, transparent);
   border-radius: 10px;
   transition: background 0.3s ease;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(0, 0, 0, 0.4);
+  background: color-mix(in srgb, var(--foreground) 36%, transparent);
 }
 
-@media (prefers-color-scheme: dark) {
-  ::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.2);
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
   }
 
-  ::-webkit-scrollbar-thumb:hover {
-    background: rgba(255, 255, 255, 0.4);
+  .skills-marquee-track {
+    animation: none !important;
   }
+}
+
+@keyframes skills-marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.skills-marquee-track {
+  animation: skills-marquee var(--skills-marquee-duration, 85s)
+    linear infinite;
 }
