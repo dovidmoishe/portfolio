@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import { Geist, Geist_Mono, Instrument_Sans } from "next/font/google";
 import SmoothScrollController from "@/../components/SmoothScrollController";
 import { absoluteUrl, coreKeywords, expertise, profile, siteUrl } from "@/lib/seo";
@@ -107,6 +108,7 @@ export default function RootLayout({
       >
         <SmoothScrollController />
         {children}
+        <Analytics />
       </body>
     </html>
   );

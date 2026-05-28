@@ -1,8 +1,6 @@
 import React from "react";
-import Image, { StaticImageData } from "next/image";
+import type { StaticImageData } from "next/image";
 import Link from "next/link";
-
-type Props = {};
 
 interface Testimonial {
   quote: string;
@@ -71,7 +69,7 @@ const TestimonialCard = (testimonial: Testimonial) => {
       style={{ backgroundColor: "rgba(0, 0, 0, 0.05)" }}
     >
       <p className="text-[15px] md:text-[16px] font-normal leading-[23px] md:leading-[24px] mb-5 md:mb-6">
-        "{testimonial.quote}"
+        &quot;{testimonial.quote}&quot;
       </p>
 
       <div className="flex flex-col mt-auto">
@@ -90,7 +88,7 @@ const TestimonialCard = (testimonial: Testimonial) => {
   );
 };
 
-function Testimonials({}: Props) {
+function Testimonials() {
   return (
     <div id="testimonials" className="mt-[60px] md:mt-[80px] lg:mt-[100px]">
       <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 md:gap-6 px-[16px] md:px-[32px] lg:px-[64px]">
