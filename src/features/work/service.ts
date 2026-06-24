@@ -19,13 +19,13 @@ export function createWorkViewModel(): WorkViewModel {
         summary:
           "Built core off-ramp infrastructure for BSC, Bitcoin, Solana, and Ethereum mainnet.",
       },
-      {
-        id: "jurix",
-        role: "Lead Developer",
-        company: "Jurix",
-        duration: "2025",
-        summary: "WhatsApp AI agent for multi-chain on-ramps and off-ramps.",
-      },
+      // {
+      //   id: "jurix",
+      //   role: "Lead Developer",
+      //   company: "Jurix",
+      //   duration: "2025",
+      //   summary: "WhatsApp AI agent for multi-chain on-ramps and off-ramps.",
+      // },
       {
         id: "edulearn",
         role: "Founder & CEO",
