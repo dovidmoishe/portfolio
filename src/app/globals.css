@@ -41,7 +41,6 @@ body {
 
 html {
   overflow-x: hidden;
-  scroll-behavior: smooth;
 }
 
 ::-webkit-scrollbar {

@@ -29,7 +29,10 @@ export function scrollToElementNative(
   element: HTMLElement,
   behavior: ScrollBehavior = "smooth",
 ) {
-  element.scrollIntoView({ behavior, block: "start" });
+  window.scrollTo({
+    top: getElementTop(element),
+    behavior,
+  });
 }
 
 export function createSmoothScroller(
