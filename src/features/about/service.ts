@@ -19,8 +19,8 @@ export function createAboutViewModel(): AboutViewModel {
         zIndexClassName: "z-10",
       },
       {
-        src: "/dave.jpg",
-        alt: "David Baiye taking a mirror selfie.",
+        src: "/about-dovidmoishe.jpeg",
+        alt: "David Baiye speaking into a microphone at an event.",
         caption: "@dovidmoishe",
         rotationClassName: "rotate-9",
         zIndexClassName: "z-20",

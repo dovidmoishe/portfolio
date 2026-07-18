@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
 import { Geist, Geist_Mono, Instrument_Sans } from "next/font/google";
-import SmoothScrollController from "@/../components/SmoothScrollController";
 import { absoluteUrl, coreKeywords, expertise, profile, siteUrl } from "@/lib/seo";
 import "./globals.css";
 
@@ -106,7 +105,6 @@ export default function RootLayout({
       <body
         className={`${instrumentSans.variable} ${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <SmoothScrollController />
         {children}
         <Analytics />
       </body>

@@ -6,16 +6,28 @@ import { AnimatePresence, motion } from "framer-motion";
 import { FaXTwitter, FaGithub, FaInstagram, FaYoutube, FaTiktok, FaTelegram, FaBars, FaXmark } from "react-icons/fa6";
 import Dave from '@/../public/dave.jpg'
 import ThemeToggle from "./ThemeToggle";
-import { useSmoothScrollStore } from "@/features/smooth-scroll/store";
+
+const NAVBAR_OFFSET = 96
+
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const { scrollToSection } = useSmoothScrollStore()
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
   }
 
   const handleSectionScroll = (sectionId: string) => {
-    scrollToSection(sectionId)
+    const section = document.getElementById(sectionId)
+
+    if (section) {
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+      const sectionTop = section.getBoundingClientRect().top + window.scrollY - NAVBAR_OFFSET
+
+      window.scrollTo({
+        top: Math.max(sectionTop, 0),
+        behavior: prefersReducedMotion ? 'auto' : 'smooth',
+      })
+    }
+
     setIsMenuOpen(false)
   }
 

@@ -11,7 +11,7 @@ Use this document to replicate the visual language, motion, and UX patterns of [
 | **Tone** | Professional, product-focused, approachable |
 | **Visual style** | Minimal monochrome with soft surfaces, generous whitespace, and subtle motion |
 | **Personality** | Confident engineer portfolio — clean, fast, detail-oriented |
-| **Differentiators** | Frosted floating navbar, infinite skills marquee, polaroid photo stack, custom smooth scroll, no-flash theme boot |
+| **Differentiators** | Frosted floating navbar, infinite skills marquee, polaroid photo stack, native anchor navigation, no-flash theme boot |
 
 The palette is intentionally **neutral (zinc-like)** — no accent color. Hierarchy comes from weight, opacity, and surface contrast, not hue.
 
@@ -473,18 +473,16 @@ Default: `"easeOut"` everywhere.
 | Menu items | Staggered `y: 18 → 0`, opacity fade, 25ms delays |
 | Close button | Fixed black circle, fades in when menu open |
 
-### Smooth Scroll (Custom)
+### Navbar Anchor Scroll (Native)
 
-Custom damped scroll for anchor navigation — not CSS `scroll-behavior` alone.
+Navbar clicks use the browser's native `window.scrollTo` behavior. Normal wheel and touch scrolling remain completely native and are never intercepted.
 
 | Parameter | Value |
 |-----------|-------|
-| Damping | `0.14` |
-| Stop threshold | `0.35` |
 | Anchor offset | `96px` (navbar clearance) |
 | Disabled when | `prefers-reduced-motion: reduce` |
 
-Falls back to native `scrollIntoView({ behavior: "smooth" })` when reduced motion is preferred.
+Use `behavior: "smooth"` only for navbar clicks and `behavior: "auto"` when reduced motion is preferred.
 
 ### Reduced Motion
 
@@ -603,7 +601,6 @@ body {
 
 html {
   overflow-x: hidden;
-  scroll-behavior: smooth;
 }
 ```
 
@@ -618,7 +615,7 @@ html {
 - [ ] Use `max-w-5xl` content rhythm and section spacing scale
 - [ ] Build frosted `rounded-4xl` navbar with backdrop blur
 - [ ] Apply Framer Motion entrance + micro-interaction patterns
-- [ ] Respect `prefers-reduced-motion` (disable marquee + smooth scroll)
+- [ ] Respect `prefers-reduced-motion` (disable marquee + navbar scroll animation)
 - [ ] Use foreground alpha tints instead of extra gray palette tokens
 - [ ] Keep palette monochrome — hierarchy via weight and opacity only
 
