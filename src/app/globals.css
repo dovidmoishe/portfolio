@@ -31,16 +31,21 @@
   --ring: #ededed;
 }
 
+html {
+  min-height: 100%;
+  overflow-x: clip;
+  overflow-y: auto;
+  scrollbar-gutter: stable;
+}
+
 body {
+  min-height: 100%;
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-instrument-sans), var(--font-geist-sans), sans-serif;
-  overflow-x: hidden;
+  overflow-x: clip;
+  overflow-y: visible;
   transition: background-color 180ms ease, color 180ms ease;
-}
-
-html {
-  overflow-x: hidden;
 }
 
 ::-webkit-scrollbar {
