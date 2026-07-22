@@ -1,16 +1,49 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { AnimatePresence, motion } from "framer-motion";
-import { FaXTwitter, FaGithub, FaInstagram, FaYoutube, FaTiktok, FaTelegram, FaBars, FaXmark } from "react-icons/fa6";
+import { FaXTwitter, FaGithub, FaInstagram, FaBars, FaXmark } from "react-icons/fa6";
 import Dave from '@/../public/dave.jpg'
 import ThemeToggle from "./ThemeToggle";
 
 const NAVBAR_OFFSET = 96
+const SCROLL_HIDE_OFFSET = 80
+const SCROLL_DELTA = 8
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isNavbarVisible, setIsNavbarVisible] = useState(true)
+  const lastScrollY = useRef(0)
+
+  useEffect(() => {
+    lastScrollY.current = window.scrollY
+
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY
+      const scrollDifference = currentScrollY - lastScrollY.current
+
+      if (currentScrollY <= SCROLL_HIDE_OFFSET || isMenuOpen) {
+        setIsNavbarVisible(true)
+        lastScrollY.current = currentScrollY
+        return
+      }
+
+      if (Math.abs(scrollDifference) < SCROLL_DELTA) {
+        return
+      }
+
+      setIsNavbarVisible(scrollDifference < 0)
+      lastScrollY.current = currentScrollY
+    }
+
+    window.addEventListener('scroll', handleScroll, { passive: true })
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [isMenuOpen])
+
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
   }
@@ -34,16 +67,16 @@ function Navbar() {
   return (
     <motion.div
       initial={{ opacity: 0, y: -16 }}
-      animate={{ opacity: 1, y: 0 }}
+      animate={{ opacity: 1, y: isNavbarVisible || isMenuOpen ? 0 : -120 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
       className="fixed top-[10px] md:top-[14px] lg:top-[16px] left-0 right-0 z-[100] px-[10px] md:px-[20px] lg:px-[32px]"
     >
-      <div className="flex items-center justify-between py-[4px] px-[10px] md:py-[4px] md:px-[14px] lg:py-[6px] lg:px-[18px] bg-surface/82 text-foreground backdrop-blur-md border border-border rounded-4xl shadow-lg shadow-black/[0.05] transition-all duration-300 dark:shadow-black/30">
+      <div className="mx-auto flex w-full max-w-[980px] items-center justify-between py-[3px] px-[10px] md:py-[3px] md:px-[12px] lg:py-[4px] lg:px-[14px] bg-surface/82 text-foreground backdrop-blur-md border border-border rounded-4xl shadow-lg shadow-black/[0.05] transition-all duration-300 dark:shadow-black/30">
         <motion.button whileTap={{ scale: 0.96 }} onClick={() => handleSectionScroll('hero')} className="cursor-pointer group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-full" aria-label="Go to home section">
-          <Image src={Dave} alt="Dave" width={42} height={42} className='rounded-full md:w-[48px] md:h-[48px] lg:w-[56px] lg:h-[56px] transition-transform duration-300 group-hover:scale-105' />
+          <Image src={Dave} alt="Dave" width={36} height={36} className='rounded-full md:w-[40px] md:h-[40px] lg:w-[44px] lg:h-[44px] transition-transform duration-300 group-hover:scale-105' />
         </motion.button>
 
-        <div className="hidden md:flex items-center gap-[24px] lg:gap-[32px] text-[14px] lg:text-[15px]">
+        <div className="hidden md:flex items-center gap-[20px] lg:gap-[24px] text-[14px]">
           <motion.button whileTap={{ scale: 0.96 }} onClick={() => handleSectionScroll('hero')} className="cursor-pointer hover:opacity-70 transition-all duration-300 hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-md">
             <p>Home</p>
           </motion.button>
@@ -61,7 +94,7 @@ function Navbar() {
           </motion.button>
         </div>
 
-        <div className="hidden md:flex items-center gap-[7px] lg:gap-[9px]">
+        <div className="hidden md:flex items-center gap-[7px]">
           <ThemeToggle />
           <Link href="https://x.com/itsdavetech" target='_blank' className="hover:opacity-70 transition-all duration-300 hover:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-md">
             <FaXTwitter size={18} className="lg:w-[20px] lg:h-[20px]" />
@@ -71,15 +104,6 @@ function Navbar() {
           </Link>
           <Link href="https://instagram.com/itsdavetech_" target='_blank' className="hover:opacity-70 transition-all duration-300 hover:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-md">
             <FaInstagram size={18} className="lg:w-[20px] lg:h-[20px]" />
-          </Link>
-          <Link href="https://youtube.com/itsdavetech" target='_blank' className="hover:opacity-70 transition-all duration-300 hover:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-md">
-            <FaYoutube size={18} className="lg:w-[20px] lg:h-[20px]" />
-          </Link>
-          <Link href="https://tiktok.com/itsdavetech" target='_blank' className="hover:opacity-70 transition-all duration-300 hover:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-md">
-            <FaTiktok size={18} className="lg:w-[20px] lg:h-[20px]" />
-          </Link>
-          <Link href="https://t.me/itsdavetech" target='_blank' className="hover:opacity-70 transition-all duration-300 hover:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-md">
-            <FaTelegram size={18} className="lg:w-[20px] lg:h-[20px]" />
           </Link>
         </div>
 
@@ -140,15 +164,6 @@ function Navbar() {
             </Link>
             <Link href="https://instagram.com/itsdavetech_" target='_blank' className="hover:opacity-70 transition-all duration-300 hover:scale-110">
               <FaInstagram size={28} />
-            </Link>
-            <Link href="https://youtube.com/itsdavetech" target='_blank' className="hover:opacity-70 transition-all duration-300 hover:scale-110">
-              <FaYoutube size={28} />
-            </Link>
-            <Link href="https://tiktok.com/itsdavetech" target='_blank' className="hover:opacity-70 transition-all duration-300 hover:scale-110">
-              <FaTiktok size={28} />
-            </Link>
-            <Link href="https://t.me/itsdavetech" target='_blank' className="hover:opacity-70 transition-all duration-300 hover:scale-110">
-              <FaTelegram size={28} />
             </Link>
           </div>
         </motion.div>

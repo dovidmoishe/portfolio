@@ -70,7 +70,7 @@ const Projects = () => {
       transition={{ duration: 0.55, ease: "easeOut" }}
       className="mt-[60px] md:mt-[80px] lg:mt-[100px]"
     >
-      <div className="mx-auto w-full max-w-7xl px-6 md:px-10">
+      <div className="mx-auto w-full max-w-5xl px-6 md:px-10">
         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between md:gap-6">
           <div className="flex flex-col">
             <p className="opacity-[0.7] text-[18px] md:text-[20px] lg:text-[24px] font-medium leading-[28px] md:leading-[32px] lg:leading-[36px]">

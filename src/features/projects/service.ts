@@ -33,7 +33,7 @@ export function createProjectsViewModel(): ProjectsViewModel {
           "A crypto reviews platform for projects that help build trust from the community through platform scores",
         fullDescription:
           "A crypto reviews platform that helps users evaluate projects through public reviews, platform scores, and trust signals designed to make community feedback easier to understand.",
-        year: "2022 - Now",
+        year: "2022",
         type: "Crypto Reviews",
         client: "Product",
         technologies: [
@@ -46,6 +46,26 @@ export function createProjectsViewModel(): ProjectsViewModel {
         ],
         link: "https://isitsafe.io",
         previewImage: "/projects/isitsafe.png",
+      },
+      {
+        slug: "jurix",
+        name: "Jurix",
+        description:
+          "A WhatsApp-led crypto trading platform that helps users in Nigeria buy and sell supported assets for naira through guided quote flows.",
+        fullDescription:
+          "Jurix gives users in Nigeria a simpler way to move between naira and supported crypto assets with clear quotes, guided WhatsApp steps, and settlement-focused transaction flows.",
+        year: "2026",
+        type: "Crypto Trading",
+        client: "Client Project",
+        technologies: [
+          { name: "Next.js", icon: "nextjs" },
+          { name: "TypeScript", icon: "typescript" },
+          { name: "TailwindCSS", icon: "tailwindcss" },
+          { name: "Solana", icon: "solana" },
+          { name: "Web3", icon: "web3" },
+        ],
+        link: "https://usejurix.com",
+        previewImage: "/projects/jurix.png",
       },
       {
         slug: "ai-cost-router",
