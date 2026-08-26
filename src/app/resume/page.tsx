@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { FaArrowLeft, FaDownload } from "react-icons/fa6";
+import HugeiconsIcon from "@/components/HugeiconsIcon";
+import { ArrowLeft01Icon, Download04Icon } from "@hugeicons/core-free-icons";
 
 export const metadata: Metadata = {
   title: "CV",
@@ -23,7 +24,7 @@ export default function ResumePage() {
             href="/"
             className="inline-flex min-h-10 items-center gap-2 rounded-[10px] border border-neutral-200 bg-white px-4 text-[14px] font-semibold leading-none text-neutral-950 transition-colors hover:bg-neutral-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-950/20"
           >
-            <FaArrowLeft size={13} aria-hidden="true" />
+            <HugeiconsIcon icon={ArrowLeft01Icon} size={13} aria-hidden="true" />
             Back
           </Link>
 
@@ -32,7 +33,7 @@ export default function ResumePage() {
             download
             className="inline-flex min-h-10 items-center gap-2 rounded-[10px] bg-neutral-950 px-4 text-[14px] font-semibold leading-none text-white transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-950/20"
           >
-            <FaDownload size={13} aria-hidden="true" />
+            <HugeiconsIcon icon={Download04Icon} size={13} aria-hidden="true" />
             Download CV
           </a>
         </div>

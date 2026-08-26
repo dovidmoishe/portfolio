@@ -46,7 +46,7 @@ function About() {
         transition={{ duration: 0.5, ease: "easeOut" }}
         className="max-w-[720px]"
       >
-        <h2 className="text-[28px] font-bold leading-[34px] tracking-normal text-foreground md:text-[34px] md:leading-[40px]">
+        <h2 className="font-serif text-[28px] font-bold leading-[34px] tracking-normal text-foreground md:text-[34px] md:leading-[40px]">
           {aboutData.heading}
         </h2>
 

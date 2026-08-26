@@ -39,7 +39,7 @@ const CTA = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.5 }}
             transition={{ duration: 0.4, ease: "easeOut" }}
-            className="text-[32px] md:text-[40px] lg:text-[48px] font-bold leading-tight"
+            className="font-serif text-[32px] md:text-[40px] lg:text-[48px] font-bold leading-tight"
           >
             Get in touch
           </motion.h2>

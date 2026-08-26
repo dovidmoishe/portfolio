@@ -3,7 +3,13 @@
 import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { FaXTwitter, FaGithub, FaTiktok, FaInstagram } from "react-icons/fa6";
+import HugeiconsIcon from "@/components/HugeiconsIcon";
+import {
+  GithubIcon,
+  InstagramIcon,
+  NewTwitterIcon,
+  TiktokIcon,
+} from "@hugeicons/core-free-icons";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -11,22 +17,22 @@ const Footer = () => {
   const socials = [
     {
       name: "Twitter/X",
-      icon: FaXTwitter,
+      icon: NewTwitterIcon,
       url: "https://x.com/yourusername",
     },
     {
       name: "Tiktok",
-      icon: FaTiktok,
+      icon: TiktokIcon,
       url: "https://tiktok.com/@itsdave.solana",
     },
     {
       name: "GitHub",
-      icon: FaGithub,
+      icon: GithubIcon,
       url: "https://github.com/dovidmoishe",
     },
     {
       name: "Instagram",
-      icon: FaInstagram,
+      icon: InstagramIcon,
       url: "https://instagram.com/itsdavetech_",
     },
   ];
@@ -54,7 +60,7 @@ const Footer = () => {
               className="text-foreground opacity-[0.7] hover:opacity-100 transition-opacity duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-md"
               aria-label={social.name}
             >
-              <social.icon size={18} className="md:w-[19px] md:h-[19px] lg:w-[20px] lg:h-[20px]" />
+              <HugeiconsIcon icon={social.icon} size={18} className="md:w-[19px] md:h-[19px] lg:w-[20px] lg:h-[20px]" aria-hidden="true" />
             </Link>
             </motion.div>
           ))}

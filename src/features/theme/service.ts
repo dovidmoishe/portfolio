@@ -3,23 +3,10 @@ import type { ThemeMode, ThemeSnapshot } from "./types";
 const STORAGE_KEY = "portfolio-theme";
 const DARK_CLASS = "dark";
 
-function isThemeMode(value: string | null): value is ThemeMode {
-  return value === "light" || value === "dark";
-}
-
 export function getPreferredThemeMode(): ThemeMode {
-  if (typeof window === "undefined") {
-    return "light";
-  }
-
-  const storedTheme = window.localStorage.getItem(STORAGE_KEY);
-  if (isThemeMode(storedTheme)) {
-    return storedTheme;
-  }
-
-  return window.matchMedia("(prefers-color-scheme: dark)").matches
-    ? "dark"
-    : "light";
+  // Automatic theme detection is intentionally disabled. Manual theme changes
+  // can still use applyThemeMode and persistThemeMode when re-enabled.
+  return "light";
 }
 
 export function applyThemeMode(mode: ThemeMode) {

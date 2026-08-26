@@ -1,5 +1,29 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: "Instrument Sans";
+  src: url("/fonts/instrument-sans.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Instrument Serif";
+  src: url("/fonts/instrument-serif.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Geist Mono";
+  src: url("/fonts/geist-mono.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
@@ -18,8 +42,10 @@
   --color-surface-muted: var(--surface-muted);
   --color-border: var(--border);
   --color-ring: var(--ring);
-  --font-sans: var(--font-instrument-sans), var(--font-geist-sans), sans-serif;
-  --font-mono: var(--font-geist-mono);
+  --font-sans: "Instrument Sans", Arial, sans-serif;
+  --font-ui: "Instrument Sans", Arial, sans-serif;
+  --font-serif: "Instrument Serif", Georgia, serif;
+  --font-mono: "Geist Mono", monospace;
 }
 
 .dark {
@@ -42,10 +68,18 @@ body {
   min-height: 100%;
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-instrument-sans), var(--font-geist-sans), sans-serif;
+  font-family: var(--font-sans);
   overflow-x: clip;
   overflow-y: visible;
   transition: background-color 180ms ease, color 180ms ease;
+}
+
+.font-ui {
+  font-family: var(--font-ui);
+}
+
+.font-serif {
+  font-family: var(--font-serif);
 }
 
 ::-webkit-scrollbar {

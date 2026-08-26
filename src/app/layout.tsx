@@ -1,23 +1,7 @@
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
-import { Geist, Geist_Mono, Instrument_Sans } from "next/font/google";
 import { absoluteUrl, coreKeywords, expertise, profile, siteUrl } from "@/lib/seo";
 import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const instrumentSans = Instrument_Sans({
-  variable: "--font-instrument-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -79,13 +63,9 @@ export const metadata: Metadata = {
 const themeBootScript = `
 (() => {
   try {
-    const storedTheme = localStorage.getItem("portfolio-theme");
-    const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    const theme = storedTheme === "light" || storedTheme === "dark"
-      ? storedTheme
-      : systemDark ? "dark" : "light";
-    document.documentElement.classList.toggle("dark", theme === "dark");
-    document.documentElement.style.colorScheme = theme;
+    // Keep the default appearance light without following the user's system theme.
+    document.documentElement.classList.remove("dark");
+    document.documentElement.style.colorScheme = "light";
   } catch {
     document.documentElement.style.colorScheme = "light";
   }
@@ -102,9 +82,7 @@ export default function RootLayout({
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeBootScript }} />
       </head>
-      <body
-        className={`${instrumentSans.variable} ${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className="antialiased">
         {children}
         <Analytics />
       </body>

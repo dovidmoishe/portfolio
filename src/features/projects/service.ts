@@ -8,6 +8,7 @@ export function createProjectsViewModel(): ProjectsViewModel {
         name: "EduLearn.fun",
         description:
           "An AI learning agent that helps people build real skills faster through active recall, accountability, and proof-of-work.",
+        shortDescription: "An AI learning companion for building real skills.",
         fullDescription:
           "EduLearn helps learners create a personalized AI agent, follow an adaptive roadmap, practice with generated quizzes and flashcards, stay consistent with revision sessions and reminders, and turn completed work into visible, verifiable achievements.",
         year: "2025",
@@ -25,12 +26,15 @@ export function createProjectsViewModel(): ProjectsViewModel {
         ],
         link: "https://edulearn.fun",
         previewImage: "/projects/edulearn.png",
+        logoSrc: "/edulear.jpg",
+        collection: "selected",
       },
       {
         slug: "isitsafe",
         name: "isitsafe.io",
         description:
           "A crypto reviews platform for projects that help build trust from the community through platform scores",
+        shortDescription: "A trust and review platform for crypto projects.",
         fullDescription:
           "A crypto reviews platform that helps users evaluate projects through public reviews, platform scores, and trust signals designed to make community feedback easier to understand.",
         year: "2022",
@@ -46,12 +50,15 @@ export function createProjectsViewModel(): ProjectsViewModel {
         ],
         link: "https://isitsafe.io",
         previewImage: "/projects/isitsafe.png",
+        logoSrc: "/work/isitsafe.png",
+        collection: "selected",
       },
       {
         slug: "jurix",
         name: "Jurix",
         description:
           "A WhatsApp-led crypto trading platform that helps users in Nigeria buy and sell supported assets for naira through guided quote flows.",
+        shortDescription: "A simpler way to trade crypto through WhatsApp.",
         fullDescription:
           "Jurix gives users in Nigeria a simpler way to move between naira and supported crypto assets with clear quotes, guided WhatsApp steps, and settlement-focused transaction flows.",
         year: "2026",
@@ -66,6 +73,51 @@ export function createProjectsViewModel(): ProjectsViewModel {
         ],
         link: "https://usejurix.com",
         previewImage: "/projects/jurix.png",
+        logoSrc: "/projects/jurix-logo.jpg",
+        logoScale: 2.25,
+        collection: "selected",
+      },
+      {
+        slug: "nectarfi",
+        name: "NectarFi",
+        description:
+          "A fintech experience for moving, saving, and managing money across modern payment rails.",
+        shortDescription: "Modern fintech experiences for moving and saving money.",
+        fullDescription:
+          "NectarFi is a fintech product focused on making modern money movement, savings, and payment experiences feel simple and reliable.",
+        year: "2026",
+        type: "Fintech",
+        client: "Product",
+        technologies: [
+          { name: "React Native", icon: "react" },
+          { name: "Solana", icon: "solana" },
+        ],
+        link: "https://nectarfi.finance",
+        previewImage: "/nectarfi.png",
+        previewFit: "contain",
+        logoSrc: "/nectarfi.png",
+        collection: "selected",
+      },
+      {
+        slug: "steadyxchange",
+        name: "SteadyXchange",
+        description:
+          "A straightforward exchange experience for digital assets and everyday users.",
+        shortDescription: "A straightforward exchange experience for digital assets.",
+        fullDescription:
+          "SteadyXchange is an exchange product designed to make digital asset transactions more approachable for everyday users.",
+        year: "2024",
+        type: "Exchange",
+        client: "Product",
+        technologies: [
+          { name: "React", icon: "react" },
+          { name: "Next.js", icon: "nextjs" },
+        ],
+        link: "https://steadyxchange.com.ng",
+        previewImage: "/work/steadyxchange.ico",
+        previewFit: "contain",
+        logoSrc: "/work/steadyxchange.ico",
+        collection: "selected",
       },
       {
         slug: "ai-cost-router",
@@ -83,6 +135,7 @@ export function createProjectsViewModel(): ProjectsViewModel {
         link: "https://github.com/dovidmoishe/ai-cost-router",
         previewImage: "/projects/ai-cost-router.svg",
         previewFit: "contain",
+        collection: "experiment",
       },
       {
         slug: "agentic-wallet",
@@ -102,6 +155,23 @@ export function createProjectsViewModel(): ProjectsViewModel {
         ],
         link: "https://github.com/dovidmoishe/agentic_wallet",
         previewImage: "/projects/agentic-wallet-repo.svg",
+        collection: "experiment",
+      },
+      {
+        slug: "senviok-rust-sdk",
+        name: "Senviok Rust SDK",
+        description:
+          "A Rust SDK for integrating with the Senviok API and building reliable developer tooling around it.",
+        fullDescription:
+          "An open-source Rust SDK for Senviok, designed to make API integrations more ergonomic and type-safe for Rust developers.",
+        year: "2026",
+        type: "Developer Tooling",
+        client: "Open Source",
+        technologies: [{ name: "Rust", icon: "rust" }],
+        link: "https://github.com/Chekwube-Manuel/senviok-Rust-SDK",
+        previewImage: "/projects/senviok-rust-sdk.svg",
+        previewFit: "contain",
+        collection: "experiment",
       },
       {
         slug: "challenge-app",
@@ -121,6 +191,7 @@ export function createProjectsViewModel(): ProjectsViewModel {
         ],
         link: "https://github.com/dovidmoishe/challenge-app-backend",
         previewImage: "/projects/challenge.png",
+        collection: "experiment",
       },
     ],
   };

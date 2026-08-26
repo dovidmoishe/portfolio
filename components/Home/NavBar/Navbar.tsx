@@ -1,48 +1,37 @@
 'use client'
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { AnimatePresence, motion } from "framer-motion";
-import { FaXTwitter, FaGithub, FaInstagram, FaBars, FaXmark } from "react-icons/fa6";
+import HugeiconsIcon from "@/components/HugeiconsIcon";
+import {
+  Cancel01Icon,
+  GithubIcon,
+  InstagramIcon,
+  Menu01Icon,
+  NewTwitterIcon,
+} from "@hugeicons/core-free-icons";
 import Dave from '@/../public/dave.jpg'
-import ThemeToggle from "./ThemeToggle";
 
 const NAVBAR_OFFSET = 96
-const SCROLL_HIDE_OFFSET = 80
-const SCROLL_DELTA = 8
+const SCROLL_COMPACT_OFFSET = 24
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [isNavbarVisible, setIsNavbarVisible] = useState(true)
-  const lastScrollY = useRef(0)
+  const [isScrolled, setIsScrolled] = useState(false)
 
   useEffect(() => {
-    lastScrollY.current = window.scrollY
-
     const handleScroll = () => {
-      const currentScrollY = window.scrollY
-      const scrollDifference = currentScrollY - lastScrollY.current
-
-      if (currentScrollY <= SCROLL_HIDE_OFFSET || isMenuOpen) {
-        setIsNavbarVisible(true)
-        lastScrollY.current = currentScrollY
-        return
-      }
-
-      if (Math.abs(scrollDifference) < SCROLL_DELTA) {
-        return
-      }
-
-      setIsNavbarVisible(scrollDifference < 0)
-      lastScrollY.current = currentScrollY
+      setIsScrolled(window.scrollY > SCROLL_COMPACT_OFFSET)
     }
 
+    handleScroll()
     window.addEventListener('scroll', handleScroll, { passive: true })
 
     return () => {
       window.removeEventListener('scroll', handleScroll)
     }
-  }, [isMenuOpen])
+  }, [])
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
@@ -67,11 +56,15 @@ function Navbar() {
   return (
     <motion.div
       initial={{ opacity: 0, y: -16 }}
-      animate={{ opacity: 1, y: isNavbarVisible || isMenuOpen ? 0 : -120 }}
+      animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
       className="fixed top-[10px] md:top-[14px] lg:top-[16px] left-0 right-0 z-[100] px-[10px] md:px-[20px] lg:px-[32px]"
     >
-      <div className="mx-auto flex w-full max-w-[980px] items-center justify-between py-[3px] px-[10px] md:py-[3px] md:px-[12px] lg:py-[4px] lg:px-[14px] bg-surface/82 text-foreground backdrop-blur-md border border-border rounded-4xl shadow-lg shadow-black/[0.05] transition-all duration-300 dark:shadow-black/30">
+      <motion.div
+        animate={{ maxWidth: isScrolled ? 980 : 1440 }}
+        transition={{ duration: 0.35, ease: "easeOut" }}
+        className="mx-auto flex w-full items-center justify-between py-[3px] px-[10px] md:py-[3px] md:px-[12px] lg:py-[4px] lg:px-[14px] bg-surface/82 text-foreground backdrop-blur-md border border-border rounded-4xl shadow-lg shadow-black/[0.05] transition-[padding,box-shadow] duration-300 dark:shadow-black/30"
+      >
         <motion.button whileTap={{ scale: 0.96 }} onClick={() => handleSectionScroll('hero')} className="cursor-pointer group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-full" aria-label="Go to home section">
           <Image src={Dave} alt="Dave" width={36} height={36} className='rounded-full md:w-[40px] md:h-[40px] lg:w-[44px] lg:h-[44px] transition-transform duration-300 group-hover:scale-105' />
         </motion.button>
@@ -95,25 +88,25 @@ function Navbar() {
         </div>
 
         <div className="hidden md:flex items-center gap-[7px]">
-          <ThemeToggle />
+          {/* Theme toggle intentionally disabled; the site defaults to light mode. */}
           <Link href="https://x.com/itsdavetech" target='_blank' className="hover:opacity-70 transition-all duration-300 hover:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-md">
-            <FaXTwitter size={18} className="lg:w-[20px] lg:h-[20px]" />
+            <HugeiconsIcon icon={NewTwitterIcon} size={18} className="lg:w-[20px] lg:h-[20px]" aria-hidden="true" />
           </Link>
           <Link href="https://github.com/dovidmoishe" target='_blank' className="hover:opacity-70 transition-all duration-300 hover:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-md">
-            <FaGithub size={18} className="lg:w-[20px] lg:h-[20px]" />
+            <HugeiconsIcon icon={GithubIcon} size={18} className="lg:w-[20px] lg:h-[20px]" aria-hidden="true" />
           </Link>
           <Link href="https://instagram.com/itsdavetech_" target='_blank' className="hover:opacity-70 transition-all duration-300 hover:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-md">
-            <FaInstagram size={18} className="lg:w-[20px] lg:h-[20px]" />
+            <HugeiconsIcon icon={InstagramIcon} size={18} className="lg:w-[20px] lg:h-[20px]" aria-hidden="true" />
           </Link>
         </div>
 
         <div className="md:hidden flex items-center gap-2">
-          <ThemeToggle />
+          {/* Theme toggle intentionally disabled; the site defaults to light mode. */}
           <motion.button whileTap={{ scale: 0.92 }} onClick={toggleMenu} className="relative inline-flex min-h-10 min-w-10 items-center justify-center rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background" aria-label="Toggle menu">
-          <FaBars size={24} />
+          <HugeiconsIcon icon={Menu01Icon} size={24} aria-hidden="true" />
           </motion.button>
         </div>
-      </div>
+      </motion.div>
 
       <motion.button
         whileTap={{ scale: 0.9 }}
@@ -121,7 +114,7 @@ function Navbar() {
         className={`md:hidden fixed top-[28px] right-[32px] md:right-[48px] lg:right-[80px] z-[110] text-white bg-black p-2 rounded-full shadow-xl transition-all duration-300 hover:scale-110 ${isMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
         aria-label="Close menu"
       >
-        <FaXmark size={28} />
+        <HugeiconsIcon icon={Cancel01Icon} size={28} aria-hidden="true" />
       </motion.button>
 
       <AnimatePresence>
@@ -152,18 +145,18 @@ function Navbar() {
           </div>
 
           <div className="flex flex-col items-center gap-[16px] mb-[32px] animate-fade-in">
-            <ThemeToggle mobile />
+            {/* Theme toggle intentionally disabled; the site defaults to light mode. */}
           </div>
 
           <div className="flex items-center gap-[24px] animate-fade-in">
             <Link href="https://x.com/itsdavetech" target='_blank' className="hover:opacity-70 transition-all duration-300 hover:scale-110">
-              <FaXTwitter size={28} />
+              <HugeiconsIcon icon={NewTwitterIcon} size={28} aria-hidden="true" />
             </Link>
             <Link href="https://github.com/dovidmoishe" target='_blank' className="hover:opacity-70 transition-all duration-300 hover:scale-110">
-              <FaGithub size={28} />
+              <HugeiconsIcon icon={GithubIcon} size={28} aria-hidden="true" />
             </Link>
             <Link href="https://instagram.com/itsdavetech_" target='_blank' className="hover:opacity-70 transition-all duration-300 hover:scale-110">
-              <FaInstagram size={28} />
+              <HugeiconsIcon icon={InstagramIcon} size={28} aria-hidden="true" />
             </Link>
           </div>
         </motion.div>

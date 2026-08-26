@@ -1,8 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FaMoon, FaSun } from "react-icons/fa6";
 import { useThemeStore } from "@/features/theme/store";
+import HugeiconsIcon from "@/components/HugeiconsIcon";
+import { Moon02Icon, Sun02Icon } from "@hugeicons/core-free-icons";
 
 interface ThemeToggleProps {
   mobile?: boolean;
@@ -10,7 +11,7 @@ interface ThemeToggleProps {
 
 export default function ThemeToggle({ mobile = false }: ThemeToggleProps) {
   const { isDark, nextLabel, toggleTheme } = useThemeStore();
-  const Icon = isDark ? FaSun : FaMoon;
+  const icon = isDark ? Sun02Icon : Moon02Icon;
 
   return (
     <motion.button
@@ -26,7 +27,7 @@ export default function ThemeToggle({ mobile = false }: ThemeToggleProps) {
           : "inline-flex min-h-10 min-w-10 items-center justify-center rounded-full border border-foreground/10 bg-foreground/[0.04] text-foreground transition-colors duration-200 hover:bg-foreground/[0.08] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2 focus-visible:ring-offset-background"
       }
     >
-      <Icon size={mobile ? 20 : 16} aria-hidden="true" />
+      <HugeiconsIcon icon={icon} size={mobile ? 20 : 16} aria-hidden="true" />
     </motion.button>
   );
 }

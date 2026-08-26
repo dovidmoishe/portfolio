@@ -1,0 +1,8 @@
+<svg width="1200" height="675" viewBox="0 0 1200 675" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="675" rx="32" fill="#171A21"/>
+  <circle cx="600" cy="286" r="112" fill="#F74C00"/>
+  <path d="M600 196C650 196 690 236 690 286C690 336 650 376 600 376C550 376 510 336 510 286C510 236 550 196 600 196ZM600 220C563 220 534 249 534 286C534 323 563 352 600 352C637 352 666 323 666 286C666 249 637 220 600 220Z" fill="white"/>
+  <path d="M552 265H624C648 265 662 277 662 295C662 309 653 319 639 324L667 356H635L610 328H581V356H552V265ZM581 287V307H619C628 307 633 303 633 297C633 290 628 287 619 287H581Z" fill="white"/>
+  <text x="600" y="470" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="42" font-weight="700">senviok-Rust-SDK</text>
+  <text x="600" y="518" text-anchor="middle" fill="#AEB4C0" font-family="monospace" font-size="22">typed API tooling in Rust</text>
+</svg>

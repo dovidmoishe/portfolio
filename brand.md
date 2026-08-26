@@ -24,9 +24,9 @@ The palette is intentionally **neutral (zinc-like)** — no accent color. Hierar
 | Framework | Next.js 16 (App Router) |
 | Styling | Tailwind CSS v4 (`@import "tailwindcss"`) |
 | Animation | Framer Motion 12 |
-| Icons | react-icons (Fa6, Si, Ri, Tb) |
+| Icons | Hugeicons (`@hugeicons/react`, `@hugeicons/core-free-icons`) |
 | UI base | shadcn/ui config — `new-york` style, `zinc` base, CSS variables |
-| Fonts | Google Fonts via `next/font` |
+| Fonts | Local `@font-face` files with graceful fallbacks |
 
 ---
 
@@ -36,24 +36,27 @@ The palette is intentionally **neutral (zinc-like)** — no accent color. Hierar
 
 | Role | Font | CSS Variable | Usage |
 |------|------|--------------|-------|
-| **Primary (sans)** | Instrument Sans | `--font-instrument-sans` | Headings, body, UI |
-| **Fallback sans** | Geist Sans | `--font-geist-sans` | Fallback if Instrument Sans fails |
-| **Monospace** | Geist Mono | `--font-geist-mono` | Code / technical labels (reserved) |
+| **Primary** | Instrument Sans | `--font-sans` / `--font-ui` | Body, UI, labels, and most headings |
+| **Special case serif** | Instrument Serif | `--font-serif` | Selective display headings and accents |
+| **Monospace** | Geist Mono | `--font-mono` | Code / technical labels (reserved) |
 
 ```tsx
-// next/font setup
-const instrumentSans = Instrument_Sans({ variable: "--font-instrument-sans", subsets: ["latin"] });
-const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
-const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
+// CSS font setup
+--font-sans: "Instrument Sans", Arial, sans-serif;
+--font-ui: "Instrument Sans", Arial, sans-serif;
+--font-serif: "Instrument Serif", Georgia, serif;
+--font-mono: "Geist Mono", monospace;
 
 // body class
-className={`${instrumentSans.variable} ${geistSans.variable} ${geistMono.variable} antialiased`}
+className="antialiased"
 ```
 
 ```css
 /* Tailwind theme */
---font-sans: var(--font-instrument-sans), var(--font-geist-sans), sans-serif;
---font-mono: var(--font-geist-mono);
+--font-sans: "Instrument Sans", Arial, sans-serif;
+--font-ui: "Instrument Sans", Arial, sans-serif;
+--font-serif: "Instrument Serif", Georgia, serif;
+--font-mono: "Geist Mono", monospace;
 ```
 
 ### Type Scale
@@ -337,7 +340,7 @@ focus:border-foreground/35 focus:ring-2 focus:ring-ring/20
 rounded-full border border-border bg-foreground/[0.04]
 text-foreground/75 font-medium
 px-4 py-2.5 text-base (compact: px-3 py-2 text-sm)
-+ react-icons icon
+Hugeicons icon
 ```
 
 ### GitHub Contributions
@@ -397,8 +400,8 @@ px-4 py-2.5 text-base (compact: px-3 py-2 text-sm)
 
 | State | Icon | Label |
 |-------|------|-------|
-| Light mode showing | `FaMoon` | "Switch to dark mode" |
-| Dark mode showing | `FaSun` | "Switch to light mode" |
+| Light mode showing | `Moon02Icon` | "Switch to dark mode" |
+| Dark mode showing | `Sun02Icon` | "Switch to light mode" |
 
 **Desktop toggle:**
 ```
@@ -578,8 +581,10 @@ Anchor IDs match navbar scroll targets. Section order and spacing are part of th
   --color-surface-muted: var(--surface-muted);
   --color-border: var(--border);
   --color-ring: var(--ring);
-  --font-sans: var(--font-instrument-sans), var(--font-geist-sans), sans-serif;
-  --font-mono: var(--font-geist-mono);
+  --font-sans: "Instrument Sans", Arial, sans-serif;
+  --font-ui: "Instrument Sans", Arial, sans-serif;
+  --font-serif: "Instrument Serif", Georgia, serif;
+  --font-mono: "Geist Mono", monospace;
 }
 
 .dark {
@@ -594,7 +599,7 @@ Anchor IDs match navbar scroll targets. Section order and spacing are part of th
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-instrument-sans), var(--font-geist-sans), sans-serif;
+  font-family: var(--font-sans);
   overflow-x: hidden;
   transition: background-color 180ms ease, color 180ms ease;
 }
@@ -608,7 +613,7 @@ html {
 
 ## Checklist for New Sites
 
-- [ ] Load Instrument Sans + Geist Sans + Geist Mono via `next/font`
+- [x] Provide local font files for Instrument Sans + Instrument Serif + Geist Mono
 - [ ] Copy CSS variables and `@theme inline` block
 - [ ] Add theme boot script to `<head>` (change storage key if needed)
 - [ ] Implement `.dark` toggle with `portfolio-theme` persistence

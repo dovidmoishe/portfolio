@@ -2,11 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import {
-  FaArrowLeft,
-  FaArrowRight,
-  FaUpRightFromSquare,
-} from "react-icons/fa6";
+import HugeiconsIcon from "@/components/HugeiconsIcon";
+import { ArrowLeft01Icon, ArrowRight01Icon, ArrowUpRight01Icon } from "@hugeicons/core-free-icons";
 import {
   getAdjacentProjects,
   getProjectBySlug,
@@ -20,7 +17,7 @@ import {
   siteUrl,
 } from "@/lib/seo";
 import TechnologyBadge from "../../../../components/Home/Projects/TechnologyBadge";
-import ThemeToggle from "../../../../components/Home/NavBar/ThemeToggle";
+// ThemeToggle remains available for a future manual theme control.
 
 interface ProjectPageProps {
   params: Promise<{
@@ -120,10 +117,10 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             href="/#projects"
             className="inline-flex min-h-11 items-center gap-3 rounded-full bg-foreground/[0.06] px-5 text-sm font-medium text-foreground transition-colors duration-200 hover:bg-foreground/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
           >
-            <FaArrowLeft size={14} aria-hidden="true" />
+            <HugeiconsIcon icon={ArrowLeft01Icon} size={14} aria-hidden="true" />
             Projects
           </Link>
-          <ThemeToggle />
+          {/* Theme toggle intentionally disabled; the site defaults to light mode. */}
         </div>
 
         <header className="mt-10 max-w-5xl md:mt-12">
@@ -190,7 +187,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             className="inline-flex min-h-14 w-fit items-center gap-3 rounded-[20px] bg-foreground px-7 text-lg font-medium text-background transition-transform duration-200 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
           >
             Visit Project
-            <FaUpRightFromSquare size={18} aria-hidden="true" />
+            <HugeiconsIcon icon={ArrowUpRight01Icon} size={18} aria-hidden="true" />
           </Link>
 
           <nav
@@ -201,7 +198,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               href={`/projects/${previousProject.slug}`}
               className="inline-flex min-h-14 items-center gap-4 rounded-[20px] bg-foreground/[0.06] px-7 text-lg font-medium text-foreground transition-colors duration-200 hover:bg-foreground/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             >
-              <FaArrowLeft size={17} aria-hidden="true" />
+              <HugeiconsIcon icon={ArrowLeft01Icon} size={17} aria-hidden="true" />
               Previous
             </Link>
             <Link
@@ -209,7 +206,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               className="inline-flex min-h-14 items-center gap-4 rounded-[20px] bg-foreground/[0.06] px-7 text-lg font-medium text-foreground transition-colors duration-200 hover:bg-foreground/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             >
               Next
-              <FaArrowRight size={17} aria-hidden="true" />
+              <HugeiconsIcon icon={ArrowRight01Icon} size={17} aria-hidden="true" />
             </Link>
           </nav>
         </div>

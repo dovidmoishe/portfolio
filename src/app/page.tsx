@@ -84,8 +84,8 @@ export default function Home() {
       />
       <Navbar />
       <Hero />
-      <About />
       <Projects />
+      <About />
       <Work />
       {/* <Testimonials /> */}
       <CTA />

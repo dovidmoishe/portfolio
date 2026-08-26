@@ -1,49 +1,51 @@
-import type { IconType } from "react-icons";
-import { FaEthereum, FaNodeJs, FaReact } from "react-icons/fa";
-import { FaBolt, FaBrain, FaCoins, FaServer } from "react-icons/fa6";
+import HugeiconsIcon from "@/components/HugeiconsIcon";
+import type { IconSvgElement } from "@hugeicons/react";
 import {
-  SiExpress,
-  SiGo,
-  SiGooglegemini,
-  SiJavascript,
-  SiMongodb,
-  SiNestjs,
-  SiNextdotjs,
-  SiOpenai,
-  SiPostgresql,
-  SiRedis,
-  SiSolana,
-  SiSupabase,
-  SiTailwindcss,
-  SiTypescript,
-  SiWeb3Dotjs,
-} from "react-icons/si";
-import { TbRoute } from "react-icons/tb";
+  AiBrain01Icon,
+  BoltIcon,
+  CodeXmlIcon,
+  Coins01Icon,
+  DatabaseIcon,
+  EthereumIcon,
+  GoogleGeminiIcon,
+  JavaScriptIcon,
+  NextIcon,
+  NodeAddIcon,
+  ReactIcon,
+  Route01Icon,
+  SourceCodeIcon,
+  ServerIcon,
+  TailwindcssIcon,
+  Typescript01Icon,
+  Brain01Icon,
+  NetworkIcon,
+} from "@hugeicons/core-free-icons";
 import type { ProjectTechnology } from "@/features/projects/types";
 
-const technologyIcons: Record<string, IconType> = {
-  ai: SiOpenai,
-  cost: FaCoins,
-  crypto: FaEthereum,
-  express: SiExpress,
-  gemini: SiGooglegemini,
-  go: SiGo,
-  javascript: SiJavascript,
-  jupiter: FaBolt,
-  learning: FaBrain,
-  mongodb: SiMongodb,
-  nestjs: SiNestjs,
-  nextjs: SiNextdotjs,
-  nodejs: FaNodeJs,
-  postgresql: SiPostgresql,
-  redis: SiRedis,
-  supabase: SiSupabase,
-  tailwindcss: SiTailwindcss,
-  react: FaReact,
-  routing: TbRoute,
-  solana: SiSolana,
-  typescript: SiTypescript,
-  web3: SiWeb3Dotjs,
+const technologyIcons: Record<string, IconSvgElement> = {
+  ai: AiBrain01Icon,
+  cost: Coins01Icon,
+  crypto: EthereumIcon,
+  express: ServerIcon,
+  gemini: GoogleGeminiIcon,
+  go: CodeXmlIcon,
+  javascript: JavaScriptIcon,
+  jupiter: BoltIcon,
+  learning: Brain01Icon,
+  mongodb: DatabaseIcon,
+  nestjs: ServerIcon,
+  nextjs: NextIcon,
+  nodejs: NodeAddIcon,
+  postgresql: DatabaseIcon,
+  redis: DatabaseIcon,
+  supabase: DatabaseIcon,
+  tailwindcss: TailwindcssIcon,
+  react: ReactIcon,
+  routing: Route01Icon,
+  rust: SourceCodeIcon,
+  solana: NetworkIcon,
+  typescript: Typescript01Icon,
+  web3: CodeXmlIcon,
 };
 
 interface TechnologyBadgeProps {
@@ -55,7 +57,7 @@ export default function TechnologyBadge({
   technology,
   compact = false,
 }: TechnologyBadgeProps) {
-  const Icon = technologyIcons[technology.icon] ?? FaServer;
+  const icon = technologyIcons[technology.icon] ?? ServerIcon;
 
   return (
     <span
@@ -63,10 +65,7 @@ export default function TechnologyBadge({
         compact ? "px-3 py-2 text-sm" : "px-4 py-2.5 text-base"
       }`}
     >
-      <Icon
-        className={compact ? "size-4 shrink-0" : "size-5 shrink-0"}
-        aria-hidden="true"
-      />
+      <HugeiconsIcon icon={icon} size={compact ? 16 : 20} className="shrink-0" aria-hidden="true" />
       {technology.name}
     </span>
   );

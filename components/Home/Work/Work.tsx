@@ -4,9 +4,10 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { FaUpRightFromSquare } from "react-icons/fa6";
 import { useThemeStore } from "@/features/theme/store";
 import { getWorkViewModel } from "@/features/work/store";
+import HugeiconsIcon from "@/components/HugeiconsIcon";
+import { ArrowUpRight01Icon } from "@hugeicons/core-free-icons";
 
 const Work = () => {
   const { works } = getWorkViewModel();
@@ -26,7 +27,7 @@ const Work = () => {
           <p className="opacity-[0.7] text-[18px] md:text-[20px] lg:text-[24px] font-medium leading-tight">
             Professional Journey
           </p>
-          <p className="font-bold text-[28px] md:text-[34px] lg:text-[40px] leading-tight">
+          <p className="font-serif font-bold text-[28px] md:text-[34px] lg:text-[40px] leading-tight">
             Work Experience
           </p>
         </div>
@@ -79,11 +80,7 @@ const Work = () => {
                       >
                         {work.company}
                         {!work.link.startsWith("#") && (
-                          <FaUpRightFromSquare
-                            size={11}
-                            className="shrink-0 opacity-55"
-                            aria-hidden="true"
-                          />
+                          <HugeiconsIcon icon={ArrowUpRight01Icon} size={11} className="shrink-0 opacity-55" aria-hidden="true" />
                         )}
                       </Link>
                     </span>

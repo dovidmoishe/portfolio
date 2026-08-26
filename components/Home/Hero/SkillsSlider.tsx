@@ -49,7 +49,7 @@ export default function SkillsSlider({ skills }: SkillsSliderProps) {
         {repeated.map((skill, i) => (
           <div
             key={i}
-            className="flex shrink-0 cursor-pointer items-center gap-2 rounded-xl border border-border bg-surface/55 px-3 py-2 text-xs font-medium text-foreground md:px-4 md:py-3 md:text-sm"
+            className="flex shrink-0 cursor-pointer items-center gap-2 rounded-xl bg-surface/55 px-3 py-2 text-xs font-medium text-foreground md:px-4 md:py-3 md:text-sm"
           >
             <span className="text-lg md:text-xl">{skill.icon}</span>
             <span>{skill.name}</span>
