@@ -21,8 +21,7 @@ export function createProjectsViewModel(): ProjectsViewModel {
           { name: "NestJS", icon: "nestjs" },
           { name: "PostgreSQL", icon: "postgresql" },
           { name: "Redis", icon: "redis" },
-          { name: "Supabase", icon: "supabase" }
-
+          { name: "Supabase", icon: "supabase" },
         ],
         link: "https://edulearn.fun",
         previewImage: "/projects/edulearn.png",
@@ -46,7 +45,7 @@ export function createProjectsViewModel(): ProjectsViewModel {
           { name: "TypeScript", icon: "typescript" },
           { name: "Web3Auth", icon: "web3auth" },
           { name: "TailwindCSS", icon: "tailwindcss" },
-          { name: "AntD", icon: "antdesign" }
+          { name: "AntD", icon: "antdesign" },
         ],
         link: "https://isitsafe.io",
         previewImage: "/projects/isitsafe.png",
@@ -82,7 +81,8 @@ export function createProjectsViewModel(): ProjectsViewModel {
         name: "NectarFi",
         description:
           "A fintech experience for moving, saving, and managing money across modern payment rails.",
-        shortDescription: "Modern fintech experiences for moving and saving money.",
+        shortDescription:
+          "Modern fintech experiences for moving and saving money.",
         fullDescription:
           "NectarFi is a fintech product focused on making modern money movement, savings, and payment experiences feel simple and reliable.",
         year: "2026",
@@ -103,7 +103,8 @@ export function createProjectsViewModel(): ProjectsViewModel {
         name: "SteadyXchange",
         description:
           "A straightforward exchange experience for digital assets and everyday users.",
-        shortDescription: "A straightforward exchange experience for digital assets.",
+        shortDescription:
+          "A straightforward exchange experience for digital assets.",
         fullDescription:
           "SteadyXchange is an exchange product designed to make digital asset transactions more approachable for everyday users.",
         year: "2024",
@@ -119,6 +120,31 @@ export function createProjectsViewModel(): ProjectsViewModel {
         logoSrc: "/work/steadyxchange.ico",
         collection: "selected",
       },
+
+      {
+        slug: "solana-state",
+        name: "Solana State",
+        description:
+          "An automated intelligence dashboard for monitoring Solana's network health, ecosystem activity, and key on-chain metrics.",
+        shortDescription:
+          "Real-time insights into Solana's network health and ecosystem activity.",
+        fullDescription:
+          "Solana State is an automated network intelligence dashboard that aggregates and analyzes key Solana metrics across network performance, validators, economic activity, and ecosystem growth. It transforms raw on-chain and ecosystem data into a clear, continuously updated view of the current state of Solana.",
+        year: "2026",
+        type: "Solana Infrastructure",
+        client: "Open Source",
+        technologies: [
+          { name: "Next.js", icon: "nextjs" },
+          { name: "TypeScript", icon: "typescript" },
+          { name: "Python", icon: "python" },
+          { name: "Solana", icon: "solana" },
+          { name: "Web3", icon: "web3" },
+        ],
+        link: "https://solana.itsdavetech.me/",
+        previewImage: "/projects/solana-state.png",
+        collection: "experiment",
+      },
+
       {
         slug: "ai-cost-router",
         name: "AI Cost Router",
@@ -129,9 +155,7 @@ export function createProjectsViewModel(): ProjectsViewModel {
         year: "2026",
         type: "AI Infrastructure",
         client: "Open Source",
-        technologies: [
-          { name: "Go", icon: "go" },
-        ],
+        technologies: [{ name: "Go", icon: "go" }],
         link: "https://github.com/dovidmoishe/ai-cost-router",
         previewImage: "/projects/ai-cost-router.svg",
         previewFit: "contain",
