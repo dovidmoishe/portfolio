@@ -31,7 +31,7 @@ export function createWorkViewModel(): WorkViewModel {
         logoSrc: "/work/novag.jpg",
         duration: "2025",
         summary:
-          "Built the Nova Solana wallet in React Native - trading, live prices, portfolio tracking, and on-chain flows.",
+          "Worked on the Nova Solana wallet in React Native - trading, live prices, and on-chain flows.",
       },
       // {
       //   id: "jurix",
