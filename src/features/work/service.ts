@@ -23,6 +23,16 @@ export function createWorkViewModel(): WorkViewModel {
         summary:
           "Built core off-ramp infrastructure for BSC, Bitcoin, Solana, and Ethereum mainnet.",
       },
+      {
+        id: "novag",
+        role: "React Native Engineer",
+        company: "nov.ag",
+        link: "https://nov.ag",
+        logoSrc: "/work/novag.jpg",
+        duration: "2025",
+        summary:
+          "Built the Nova Solana wallet in React Native - trading, live prices, portfolio tracking, and on-chain flows.",
+      },
       // {
       //   id: "jurix",
       //   role: "Lead Developer",
