@@ -7,12 +7,13 @@ export function createProjectsViewModel(): ProjectsViewModel {
         slug: "edulearn",
         name: "EduLearn.fun",
         description:
-          "An AI learning agent that helps people build real skills faster through active recall, accountability, and proof-of-work.",
-        shortDescription: "An AI learning companion for building real skills.",
+          "An AI-powered Web3 learning platform that helps people build real skills through personalized roadmaps, active recall, quizzes, flashcards, and accountability.",
+        shortDescription:
+          "An AI-powered learning platform for Web3 and real-world skills.",
         fullDescription:
-          "EduLearn helps learners create a personalized AI agent, follow an adaptive roadmap, practice with generated quizzes and flashcards, stay consistent with revision sessions and reminders, and turn completed work into visible, verifiable achievements.",
+          "EduLearn helps people learn Web3 and other skills with a personalized AI learning agent. Learners can follow adaptive roadmaps, practice with generated quizzes and flashcards, stay consistent with revision sessions and reminders, and turn completed work into visible proof-of-work.",
         year: "2025",
-        type: "Education",
+        type: "Web3 Education",
         client: "Personal Project",
         technologies: [
           { name: "Next.js", icon: "nextjs" },
@@ -56,12 +57,13 @@ export function createProjectsViewModel(): ProjectsViewModel {
         slug: "jurix",
         name: "Jurix",
         description:
-          "A WhatsApp-led crypto trading platform that helps users in Nigeria buy and sell supported assets for naira through guided quote flows.",
-        shortDescription: "A simpler way to trade crypto through WhatsApp.",
+          "A multichain WhatsApp crypto agent for buying, selling, swapping, and managing digital assets through conversational flows.",
+        shortDescription:
+          "A multichain crypto agent built directly into WhatsApp.",
         fullDescription:
-          "Jurix gives users in Nigeria a simpler way to move between naira and supported crypto assets with clear quotes, guided WhatsApp steps, and settlement-focused transaction flows.",
+          "Jurix makes interacting with crypto as simple as sending a WhatsApp message. Users can buy, sell, swap, and manage supported assets across multiple chains through conversational flows, with fiat on/off-ramp support for everyday transactions.",
         year: "2026",
-        type: "Crypto Trading",
+        type: "Multichain Crypto Agent",
         client: "Client Project",
         technologies: [
           { name: "Next.js", icon: "nextjs" },
@@ -80,13 +82,13 @@ export function createProjectsViewModel(): ProjectsViewModel {
         slug: "nectarfi",
         name: "NectarFi",
         description:
-          "A fintech experience for moving, saving, and managing money across modern payment rails.",
+          "A Solana consumer finance app for payments, savings, earning, and everyday money movement.",
         shortDescription:
-          "Modern fintech experiences for moving and saving money.",
+          "A Solana consumer app for everyday financial experiences.",
         fullDescription:
-          "NectarFi is a fintech product focused on making modern money movement, savings, and payment experiences feel simple and reliable.",
+          "NectarFi is a Solana-powered consumer finance app that brings payments, savings, earning, and everyday money movement into one simple experience, making on-chain financial products accessible to everyday users.",
         year: "2026",
-        type: "Fintech",
+        type: "Solana Consumer Finance",
         client: "Product",
         technologies: [
           { name: "React Native", icon: "react" },
@@ -102,13 +104,13 @@ export function createProjectsViewModel(): ProjectsViewModel {
         slug: "steadyxchange",
         name: "SteadyXchange",
         description:
-          "A straightforward exchange experience for digital assets and everyday users.",
+          "A multichain on/off-ramp app that makes moving between crypto and fiat simple for everyday users.",
         shortDescription:
-          "A straightforward exchange experience for digital assets.",
+          "A multichain on/off-ramp for crypto and fiat.",
         fullDescription:
-          "SteadyXchange is an exchange product designed to make digital asset transactions more approachable for everyday users.",
+          "SteadyXchange is a multichain on/off-ramp designed to make moving between digital assets and fiat simple and accessible, giving everyday users a straightforward way to enter and exit crypto across supported networks.",
         year: "2024",
-        type: "Exchange",
+        type: "Multichain On/Off-Ramp",
         client: "Product",
         technologies: [
           { name: "React", icon: "react" },
